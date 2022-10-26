@@ -4,13 +4,12 @@ import java.util.Random;
 
 public class Ex1 {
     static Random random = new Random();
-    static int a;
-   static int stopPosition = 3;
+    static int stopPosition = 3;
 
     static int[] getArray(int[] array) {
         if (array.length < stopPosition) {
             for (int i = 0; i < array.length; i++) {
-
+                array[i] = random.nextInt(100);
                 if (array[i] % 2 > 0) {
                     array[i] = array[i] + 1;
                 }
@@ -37,7 +36,7 @@ public class Ex1 {
     }
 
     public static void main(String[] args) {
-        int[] testArray = new int[24];
+        int[] testArray = new int[2];
         outArray(getArray(testArray));
     }
 }
