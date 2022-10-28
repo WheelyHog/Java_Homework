@@ -3,8 +3,8 @@ package HW271022;
 import java.util.Arrays;
 
 public class PingPong {
-    static int h = 30;
-    static int w = 30;
+    static int h = 27;
+    static int w = 16;
     static char ch = '`';
 
     static String[][] array = new String[h][w];
@@ -18,13 +18,13 @@ public class PingPong {
                 array[i][j] = String.valueOf(ch);
             }
         }
-        System.out.println(posX + " " + posY);
+
         for (int i = 0; i < w; i++) {
             array[i][i] = "$";
             posX++;
             posY++;
         }
-        System.out.println(posX + " " + posY);
+
         posX -= 2;
 
         for (int i = posY; i < h; i++) {
@@ -32,7 +32,7 @@ public class PingPong {
             posY++;
             posX --;
         }
-        System.out.println(posX + " " + posY);
+
 
         posY-=2;
         for (int i = posX; i >= 0; i--) {
@@ -40,7 +40,7 @@ public class PingPong {
             posY--;
             posX--;
         }
-        System.out.println(posX + " " + posY);
+
         posX +=2;
         for (int i = posX; i < w; i++) {
             array[posY][posX] = "$";
@@ -49,7 +49,7 @@ public class PingPong {
         }
 
         Arrays.stream(array).map(Arrays::toString).forEach(System.out::println);
-        System.out.println(array.length +" " + array[0].length);
+
     }
 
     public static void main(String[] args) {
