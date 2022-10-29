@@ -5,10 +5,8 @@ import java.util.Arrays;
 public class PingPong {
     static char ch = '`';
 
-    public static String[][] createArray(int length, int height) {
+    public static void createArray(int length, int height) {
         String[][] array = new String[height][length];
-//        height = 9;
-//        length = 15;
         isCube(array);
         fillLength(array);
 
@@ -16,14 +14,12 @@ public class PingPong {
             diagonal(array);
         } else fillArray(array);
         Arrays.stream(array).map(Arrays::toString).forEach(System.out::println);
-        return array;
     }
 
     private static void fillArray(String[][] array) {
         int posX = 0;
         int posY = 0;
         if (array[0].length > array.length) {
-
 
             for (int i = 0; i < array.length; i++) {
                 array[i][i] = "$";
@@ -37,7 +33,6 @@ public class PingPong {
                 posY--;
                 posX = i;
             }
-
 
             posX--;
             for (int i = posY; i >= 0; i--) {
@@ -66,7 +61,6 @@ public class PingPong {
                 posX--;
             }
 
-
             posY -= 2;
             for (int i = posX; i >= 0; i--) {
                 array[posY][i] = "$";
@@ -82,7 +76,6 @@ public class PingPong {
             }
         }
     }
-
 
     private static void diagonal(String[][] array) {
         for (int i = 0; i < array.length; i++) {
@@ -101,14 +94,10 @@ public class PingPong {
     }
 
     static boolean isCube(String[][] array) {
-        if (array.length == array[0].length) {
-            return true;
-        } else {
-            return false;
-        }
+        return array.length == array[0].length;
     }
 
     public static void main(String[] args) {
-        createArray(25, 15);
+        createArray(10, 15);
     }
 }
